@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Silvio Mazzucco | Computer Vision Research Engineer</title>
+<meta name="description" content="Silvio Mazzucco is a computer vision research engineer at the Huawei Zurich Research Center, working on video stabilization, diffusion models and 3D/4D reconstruction. ETH Zurich MSc, BMVC 2025 author.">
+<meta name="author" content="Silvio Mazzucco">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://sisso16.github.io/">
+<meta name="theme-color" content="#14170e">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Silvio Mazzucco | Computer Vision Research Engineer">
+<meta property="og:description" content="Computer vision research engineer in Zurich: video stabilization, diffusion models, 3D/4D reconstruction.">
+<meta property="og:url" content="https://sisso16.github.io/">
+<meta property="og:image" content="https://sisso16.github.io/assets/og.png">
+<meta property="profile:first_name" content="Silvio">
+<meta property="profile:last_name" content="Mazzucco">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Silvio Mazzucco",
+  "image": "https://sisso16.github.io/assets/photo.jpg",
+  "url": "https://sisso16.github.io/",
+  "jobTitle": "Computer Vision Research Engineer",
+  "worksFor": {"@type": "Organization", "name": "Huawei Zurich Research Center"},
+  "alumniOf": [{"@type": "CollegeOrUniversity", "name": "ETH Zurich"}, {"@type": "CollegeOrUniversity", "name": "University of Bologna"}],
+  "address": {"@type": "PostalAddress", "addressLocality": "Zurich", "addressCountry": "CH"},
+  "knowsAbout": ["Computer vision", "Video stabilization", "Computational photography", "Diffusion models", "3D reconstruction"],
+  "sameAs": ["https://www.linkedin.com/in/silvio-mazzucco-7a9672234/", "https://github.com/Sisso16", "https://arxiv.org/abs/2509.15225", "https://thegoodailab.org/blog/vocalign"]
+}
+</script>
+<style>
+  @font-face{font-family:"Space Grotesk";src:url(fonts/space-grotesk-latin-wght-normal.woff2) format("woff2");font-weight:300 700;font-display:swap}
+  @font-face{font-family:"Inter";src:url(fonts/inter-latin-wght-normal.woff2) format("woff2");font-weight:100 900;font-display:swap}
+  @font-face{font-family:"JetBrains Mono";src:url(fonts/jetbrains-mono-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}
+  @font-face{font-family:"JetBrains Mono";src:url(fonts/jetbrains-mono-latin-500-normal.woff2) format("woff2");font-weight:500;font-display:swap}
+  :root{
+    --bg:#fbfaf7; --surface:#ffffff; --ink:#16181d; --muted:#5d6370; --faint:#8a909c;
+    --line:#e7e4dd; --accent:#2f5d50; --accent-soft:#e6efeb; --chip:#f2f0eb;
+    --serif:"Space Grotesk",system-ui,sans-serif; --sans:"Space Grotesk",system-ui,-apple-system,sans-serif; --mono:"JetBrains Mono",ui-monospace,monospace;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{ --bg:#111314; --surface:#181b1c; --ink:#ecebe7; --muted:#a3a8ae; --faint:#7b8187;
+      --line:#2a2e30; --accent:#8cc2ae; --accent-soft:#1d2a26; --chip:#212526; }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline;text-underline-offset:3px}
+  .wrap{max-width:860px;margin:0 auto;padding:0 24px}
+
+  nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
+  nav .brand{font-family:var(--serif);font-weight:600;color:var(--ink);font-size:17px}
+  nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0;font-size:14px}
+  nav ul a{color:var(--muted)}
+  @media (max-width:640px){ nav ul{display:none} }
+
+  header.hero{padding:72px 0 40px;display:grid;grid-template-columns:1fr 168px;gap:40px;align-items:start}
+  .hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(36px,6vw,52px);line-height:1.05;margin:0 0 10px;letter-spacing:-.01em}
+  .role{font-family:var(--mono);font-size:13px;color:var(--accent);letter-spacing:.04em;text-transform:uppercase;margin:0 0 22px}
+  .hero p.bio{color:var(--ink);font-size:19px;line-height:1.6;margin:0 0 16px;max-width:52ch;letter-spacing:-.005em}
+  .hero p.bio strong{color:var(--ink);font-weight:500}
+  .avatar{width:168px;height:168px;border-radius:50%;background:var(--accent-soft);display:grid;place-items:center;font-family:var(--serif);font-size:56px;color:var(--accent);overflow:hidden;border:1px solid var(--line)}
+  .avatar img{width:100%;height:100%;object-fit:cover}
+  @media (max-width:640px){ header.hero{grid-template-columns:1fr;padding-top:40px} .avatar{width:112px;height:112px;font-size:40px;order:-1} }
+
+  .links{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+  .btn{display:inline-flex;align-items:center;gap:7px;padding:7px 13px;border:1px solid var(--line);border-radius:999px;font-size:14px;color:var(--ink);background:var(--surface);transition:border-color .15s,transform .15s}
+  .btn:hover{border-color:var(--accent);text-decoration:none;transform:translateY(-1px)}
+  .btn.primary{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+  .btn svg{width:15px;height:15px;fill:currentColor}
+
+  section,header.hero{scroll-margin-top:60px}
+  section{padding:36px 0;border-top:1px solid var(--line)}
+  h2{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin:0 0 24px}
+
+  .interests{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{font-size:13.5px;padding:5px 11px;border-radius:6px;background:var(--chip);color:var(--ink)}
+
+  ul.news{list-style:none;margin:0;padding:0}
+  ul.news li{display:grid;grid-template-columns:92px 1fr;gap:16px;padding:7px 0}
+  ul.news time{font-family:var(--mono);font-size:13px;color:var(--faint);padding-top:2px}
+
+  .pub{display:grid;grid-template-columns:260px 1fr;gap:26px;align-items:start}
+  .pub + .pub{margin-top:32px}
+  .thumb{border-radius:8px;overflow:hidden;border:1px solid var(--line);background:var(--surface);aspect-ratio:16/10}
+  .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+  .pub h3{font-size:17px;font-weight:600;line-height:1.4;margin:0 0 6px}
+  .authors{font-size:14.5px;color:var(--muted);margin:0 0 4px}
+  .authors b{color:var(--ink);font-weight:600}
+  .venue{font-size:14.5px;margin:0 0 12px;color:var(--muted)}
+  .venue em{font-style:normal;color:var(--ink);font-weight:500;margin-right:4px}
+  .pub p.tldr{font-size:14.5px;color:var(--muted);margin:0 0 12px}
+  .tags{display:flex;flex-wrap:wrap;column-gap:22px;row-gap:6px}
+  .tag{all:unset;cursor:pointer;font:500 13.5px var(--sans);color:var(--ink);border-bottom:1px solid var(--line);padding-bottom:1px;transition:border-color .2s,color .2s}
+  .tag:hover{color:var(--accent);border-color:var(--accent);text-decoration:none}
+  pre.bib{display:none;margin:12px 0 0;padding:14px;background:var(--chip);border-radius:6px;font:12px/1.5 var(--mono);overflow-x:auto;white-space:pre}
+  pre.bib.open{display:block}
+  @media (max-width:640px){ .pub{grid-template-columns:1fr;gap:14px} }
+
+  .xp{display:grid;grid-template-columns:150px 1fr;gap:20px}
+  .xp + .xp{margin-top:26px}
+  .xp .when{font-family:var(--mono);font-size:13px;color:var(--faint);padding-top:3px}
+  .xp h3{font-size:16px;font-weight:600;margin:0}
+  .xp .org{color:var(--muted);font-size:14.5px;margin:0 0 8px}
+  .xp ul{margin:0;padding-left:18px;color:var(--muted);font-size:14.5px}
+  .xp li{margin:3px 0}
+  .xp li strong{color:var(--ink);font-weight:500}
+  @media (max-width:640px){ .xp{grid-template-columns:1fr;gap:2px} }
+
+  .skills{display:grid;grid-template-columns:150px 1fr;row-gap:10px;column-gap:20px;font-size:14.5px}
+  .skills dt{color:var(--faint);font-family:var(--mono);font-size:13px;padding-top:2px}
+  .skills dd{margin:0;color:var(--muted)}
+  @media (max-width:640px){ .skills{grid-template-columns:1fr;row-gap:2px} .skills dd{margin-bottom:10px} }
+
+  footer{padding:36px 0 60px;border-top:1px solid var(--line);color:var(--faint);font-size:13px}
+
+
+  /* current-section crumb */
+  nav .left{display:flex;align-items:baseline;gap:10px;min-width:0}
+  nav .crumb{display:flex;align-items:baseline;gap:10px;font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);white-space:nowrap}
+  nav .crumb .sep{color:var(--faint)}
+  nav .crumb #cur{display:inline-block;transition:opacity .2s,transform .2s}
+  nav .crumb #cur.swap{opacity:0;transform:translateY(4px)}
+  nav ul a.on{color:var(--ink)}
+
+
+  #page{min-height:100vh}
+  .acc-inner.hero p.bio.outside{margin-top:30px;padding-top:18px;border-top:1px solid var(--line)}
+  .olabel{display:block;font:500 11.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-bottom:4px}
+  nav .left{position:relative}
+  button.crumb{background:none;border:0;padding:0;cursor:default;font:inherit;font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:10px}
+  button.crumb .caret{width:12px;height:12px;display:none}
+  .menu{display:none;position:absolute;top:34px;left:0;min-width:200px;background:var(--surface);border:1px solid var(--line);border-radius:10px;box-shadow:0 14px 40px rgba(0,0,0,.12);padding:6px;z-index:20}
+  .menu.open{display:block}
+  .menu a{display:block;padding:9px 12px;border-radius:6px;color:var(--ink);font-size:15px}
+  .menu a.on{background:var(--chip)}
+  .menu a:hover{text-decoration:none;background:var(--chip)}
+  @media (max-width:640px){ button.crumb{cursor:pointer} button.crumb .caret{display:block} }
+
+
+  /* stacked, individually openable sections */
+  main{padding:28px 0 80px}
+  .acc{border-top:1px solid var(--line);padding:0}
+  .acc:last-child{border-bottom:1px solid var(--line)}
+  .acc-head{all:unset;box-sizing:border-box;width:100%;display:flex;align-items:center;justify-content:space-between;padding:22px 0;cursor:pointer;scroll-margin-top:60px}
+  .acc-head .t{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);transition:color .2s}
+  .acc-head:hover .t,.acc.open .acc-head .t{color:var(--ink)}
+  .acc-head:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:4px}
+  .sball{width:24px;height:24px;flex:none;transition:transform .6s cubic-bezier(.2,.7,.2,1);filter:drop-shadow(0 2px 2px rgba(0,0,0,.15))}
+  .sball .p{fill:#fff;transition:fill .25s}
+  .acc-head:hover .sball{transform:rotate(-40deg)}
+  .acc.open .sball{transform:rotate(216deg)}
+  .acc.open .sball[data-n="1"] .p1,
+  .acc.open .sball[data-n="2"] :is(.p1,.p2),
+  .acc.open .sball[data-n="3"] :is(.p1,.p2,.p3),
+  .acc.open .sball[data-n="4"] :is(.p1,.p2,.p3,.p4){fill:#16181d}
+  .acc.open .sball .p2{transition-delay:.08s} .acc.open .sball .p3{transition-delay:.16s} .acc.open .sball .p4{transition-delay:.24s}
+  .acc-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s cubic-bezier(.2,.7,.2,1)}
+  .acc.open .acc-body{grid-template-rows:1fr}
+  .acc-clip{overflow:hidden;min-height:0}
+  .acc.instant .acc-body{transition:none}
+  .acc-inner{padding:4px 0 40px;opacity:0;transform:translateY(-6px);transition:opacity .35s,transform .45s}
+  .acc.open .acc-inner{opacity:1;transform:none}
+  .acc-inner.hero{display:grid;grid-template-columns:1fr 150px;gap:36px;align-items:start}
+  .acc-inner.hero .avatar{width:150px;height:150px;font-size:48px}
+  @media (max-width:640px){
+    .acc-inner.hero{grid-template-columns:1fr} .acc-inner.hero .avatar{display:none} }
+
+  /* photography */
+  .film-note{color:var(--muted);font-size:14.5px;margin:-8px 0 22px}
+  .gallery{columns:3 220px;column-gap:14px}
+  .gallery figure{break-inside:avoid;margin:0 0 14px;cursor:zoom-in;position:relative;border-radius:4px;overflow:hidden;background:var(--chip)}
+  .gallery img{width:100%;display:block;transition:transform .5s ease}
+  .gallery figure:hover img{transform:scale(1.03)}
+  .gallery figcaption{position:absolute;left:0;right:0;bottom:0;padding:18px 10px 8px;font:11.5px var(--mono);letter-spacing:.06em;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.55));opacity:0;transition:opacity .25s}
+  .gallery figure:hover figcaption{opacity:1}
+  .frame.empty{cursor:default;aspect-ratio:3/2;display:grid;place-items:center;border:1px dashed var(--line);background:var(--surface)}
+  .frame.empty.tall{aspect-ratio:2/3}
+  .frame.empty span{font:12px var(--mono);letter-spacing:.12em;color:var(--faint)}
+  #lightbox{position:fixed;inset:0;z-index:100;background:rgba(12,13,10,.92);display:none;align-items:center;justify-content:center;padding:4vmin;cursor:zoom-out}
+  #lightbox.open{display:flex}
+  #lightbox img{max-width:100%;max-height:100%;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+  #lightbox p{position:absolute;bottom:18px;left:0;right:0;text-align:center;color:#ddd;font:12px var(--mono);letter-spacing:.08em}
+
+
+  /* photography: one roll per folder */
+  .soon{border:1px dashed var(--line);border-radius:6px;padding:46px 20px;text-align:center}
+  .soon span{font:500 12px var(--mono);letter-spacing:.2em;padding-left:.2em;text-transform:uppercase;color:var(--faint)}
+  .rolls{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:16px}
+  .roll{all:unset;cursor:pointer;display:block}
+  .roll .cover{aspect-ratio:3/2;border-radius:4px;overflow:hidden;background:var(--chip);border:1px solid var(--line);display:grid;place-items:center}
+  .roll .cover img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+  .roll:hover .cover img{transform:scale(1.04)}
+  .roll .cover span{font:12px var(--mono);letter-spacing:.12em;color:var(--faint)}
+  .roll .meta{display:flex;justify-content:space-between;margin-top:8px;font:500 12px var(--mono);letter-spacing:.06em}
+  .roll .meta b{font-weight:500;color:var(--ink)} .roll .meta i{font-style:normal;color:var(--faint)}
+  .rollhead{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+  .rollhead button{all:unset;cursor:pointer;font:500 12px var(--mono);letter-spacing:.1em;color:var(--accent)}
+  .rollhead b{font:500 12px var(--mono);letter-spacing:.12em;text-transform:uppercase}
+  #lightbox .nav{position:absolute;top:50%;transform:translateY(-50%);all:unset;color:#eee;font:28px var(--mono);padding:20px;cursor:pointer}
+  #lightbox .prev{left:6px} #lightbox .next{right:6px}
+
+  /* ---------- intro: phone-camera viewfinder ---------- */
+  #intro{--top:56px;--bot:176px;--ph:min(30vw,22vh,168px);--grass:#bbc17a;--ink:#2b3519;--ui:#eef1dc;--hud:#f1ff6b;
+    position:fixed;inset:0;z-index:50;color:var(--ink);overflow:hidden;will-change:transform;cursor:none;background:#14170e}
+  #intro .sensor{position:absolute;left:0;right:0;top:var(--top);bottom:var(--bot);background:var(--grass);overflow:hidden}
+  #intro .sensor .img{position:absolute;inset:-4%;will-change:transform}
+  #intro .sensor svg{position:absolute;inset:0;width:100%;height:100%}
+  #intro .ln{stroke:rgba(43,53,25,.38);stroke-width:1.6;fill:none;stroke-linecap:round;
+    stroke-dasharray:var(--len);stroke-dashoffset:var(--len);animation:draw 2s cubic-bezier(.6,.05,.25,1) forwards}
+  #intro .dot{fill:rgba(43,53,25,.5);opacity:0;animation:fade .6s 1.5s forwards}
+  @keyframes draw{to{stroke-dashoffset:0}}
+  @keyframes fade{to{opacity:1}}
+  #intro .thirds{position:absolute;left:0;right:0;top:var(--top);bottom:var(--bot);pointer-events:none;z-index:2;
+    background:linear-gradient(90deg,transparent calc(100%/3 - .5px),rgba(255,255,255,.55) 0 calc(100%/3 + .5px),transparent 0 calc(200%/3 - .5px),rgba(255,255,255,.55) 0 calc(200%/3 + .5px),transparent 0),
+               linear-gradient(180deg,transparent calc(100%/3 - .5px),rgba(255,255,255,.55) 0 calc(100%/3 + .5px),transparent 0 calc(200%/3 - .5px),rgba(255,255,255,.55) 0 calc(200%/3 + .5px),transparent 0)}
+  #intro .bar{position:absolute;left:0;right:0;z-index:6;background:#14170e;color:var(--ui);font:500 12px var(--mono);letter-spacing:.1em}
+  #intro .bar.top{top:0;height:var(--top);display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 20px}
+  #intro .bar.top .l{justify-self:start;display:flex;align-items:center;gap:8px}
+  #intro .bar.top .r{justify-self:end}
+  #intro .rec i{display:block;width:8px;height:8px;border-radius:50%;background:#ff4b3a;animation:blink 1s steps(2) infinite}
+  @keyframes blink{50%{opacity:.25}}
+  #intro .chip{all:unset;cursor:none;font:500 11.5px var(--mono);letter-spacing:.1em;padding:5px 9px;border-radius:5px;border:1px solid rgba(238,241,220,.55);line-height:1}
+  #intro .chip.on{background:var(--hud);border-color:var(--hud);color:#1b1f0f}
+  #intro .status{position:absolute;left:50%;top:calc(var(--top) + 14px);transform:translateX(-50%);z-index:6;background:rgba(20,23,14,.72);color:var(--ui);
+    font:500 11px var(--mono);letter-spacing:.12em;padding:6px 10px 6px calc(10px + .12em);border-radius:5px;transition:opacity .4s;white-space:nowrap}
+  #intro .bar.bot{bottom:0;height:var(--bot);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px}
+  #intro .zoom{display:flex;gap:10px}
+  #intro .zoom span{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.1);font:500 11px var(--mono);letter-spacing:0}
+  #intro .zoom span.on{color:var(--hud);background:rgba(255,255,255,.18)}
+  #intro .row{display:grid;grid-template-columns:1fr 72px 1fr;align-items:center;width:100%;max-width:420px;column-gap:34px}
+  #intro .row .side{font:500 11.5px var(--mono);letter-spacing:.14em;opacity:.8}
+  #intro .row .side.l{justify-self:end;margin-right:-.14em}
+  #intro .row .side.r{justify-self:start}
+  #intro .shutter{all:unset;box-sizing:border-box;width:72px;height:72px;border-radius:50%;border:3px solid var(--ui);display:grid;place-items:center;cursor:none}
+  #intro .shutter::after{content:"";width:56px;height:56px;border-radius:50%;background:var(--ui);transition:transform .15s}
+  #intro .shutter:hover::after{transform:scale(.92)}
+  #intro .shutter:active::after{transform:scale(.84)}
+  #intro .hint{font:500 10.5px var(--mono);letter-spacing:.22em;padding-left:.22em;opacity:.75;margin-top:-4px}
+  #intro .af{position:absolute;left:0;top:0;width:60px;height:60px;margin:-30px 0 0 -30px;z-index:4;pointer-events:none;opacity:0;transition:opacity .3s}
+  #intro .af.on{opacity:1}
+  #intro .af svg{width:100%;height:100%;overflow:visible}
+  #intro .af span{position:absolute;top:100%;left:0;right:0;text-align:center;margin-top:5px;color:var(--hud);font:500 10px var(--mono);letter-spacing:.12em;padding-left:.12em}
+  #intro .corner{position:absolute;width:22px;height:22px;z-index:3;border:0 solid rgba(255,255,255,.85);pointer-events:none}
+  #intro .corner.tl{top:calc(var(--top) + 14px - 1px);left:13px;border-top-width:2px;border-left-width:2px}
+  #intro .corner.tr{top:calc(var(--top) + 14px - 1px);right:13px;border-top-width:2px;border-right-width:2px}
+  #intro .corner.bl{bottom:calc(var(--bot) + 14px - 1px);left:13px;border-bottom-width:2px;border-left-width:2px}
+  #intro .corner.br{bottom:calc(var(--bot) + 14px - 1px);right:13px;border-bottom-width:2px;border-right-width:2px}
+  #intro .id{position:absolute;left:0;right:0;z-index:3;display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 20px;pointer-events:none;
+    top:calc(var(--top) + (100% - var(--top) - var(--bot)) / 2);transform:translateY(calc(var(--ph) / -2))}
+  #intro .photo{width:var(--ph);height:var(--ph);border-radius:50%;overflow:hidden;border:2px solid var(--ink);box-shadow:0 0 0 10px rgba(255,255,255,.28);background:#d2dba0;display:grid;place-items:center;font-family:var(--serif);font-weight:700;font-size:calc(var(--ph) * .3);letter-spacing:-.03em}
+  #intro .photo img{width:100%;height:100%;object-fit:cover}
+  #intro h1{font-family:var(--serif);font-weight:700;font-size:clamp(38px,min(7vw,9vh),86px);line-height:.95;margin:28px 0 14px;letter-spacing:-.035em}
+  #intro .what{font:500 clamp(11px,1.5vw,14px) var(--mono);letter-spacing:.18em;padding-left:.18em;text-transform:uppercase;margin:0}
+  @media (max-width:520px){ #intro{--bot:168px} #intro .row{column-gap:22px} #intro .bar.top{padding:0 16px} }
+  #ball{position:fixed;left:0;top:0;width:20px;height:20px;margin:-10px 0 0 -10px;z-index:60;pointer-events:none;will-change:transform;transition:opacity .2s;filter:drop-shadow(0 6px 6px rgba(0,0,0,.35))}
+  #ball.hidden{opacity:0}
+  #page{position:relative;will-change:transform;transform-origin:50% 0}
+  #spacer{height:100vh}
+  @media (hover:none){ #intro,#intro .shutter,#intro .chip{cursor:auto} }
+</style>
+</head>
+<body>
+
+<div id="intro" aria-label="Intro">
+  <div class="sensor"><div class="img" id="img"><svg id="pitch" aria-hidden="true"></svg></div></div>
+  <div class="thirds"></div>
+  <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+  <div class="af" id="af"><svg viewBox="0 0 60 60"><path d="M1 14V1h13M46 1h13v13M59 46v13H46M14 59H1V46" fill="none" stroke="#f1ff6b" stroke-width="2"/></svg><span>AF-L</span></div>
+  <div class="id">
+    <div class="photo"><img src="assets/photo.jpg" alt="Silvio Mazzucco"></div>
+    <h1>Silvio Mazzucco</h1>
+    <p class="what">Computer Vision Research Engineer</p>
+  </div>
+  <div class="bar top">
+    <span class="l rec"><i></i><span id="tc">00:00:00</span></span>
+    <span>4K 60FPS</span>
+    <button class="chip on r" id="eis" aria-pressed="true" title="Video stabilization">EIS</button>
+  </div>
+  <div class="status" id="status">STABILIZATION ON</div>
+  <div class="bar bot">
+    <div class="zoom"><span>.5</span><span class="on">1×</span><span>2</span><span>5</span></div>
+    <div class="row"><span class="side l">ZÜRICH</span><button class="shutter" id="down" aria-label="Explore"></button><span class="side r" id="year">2026</span></div>
+    <div class="hint">EXPLORE</div>
+  </div>
+</div>
+
+<svg id="ball" class="hidden" viewBox="0 0 100 100" aria-hidden="true">
+  <defs><clipPath id="bc"><circle cx="50" cy="50" r="48"/></clipPath></defs>
+  <circle cx="50" cy="50" r="48" fill="#fff"/>
+  <g clip-path="url(#bc)" fill="#16181d" id="ballpatches">
+    <polygon points="50,33 66,45 60,64 40,64 34,45"/>
+    <polygon points="50,-6 64,4 58,18 42,18 36,4"/>
+    <polygon points="94,30 104,46 96,60 82,52 82,36"/>
+    <polygon points="80,92 72,106 56,100 60,84 74,80"/>
+    <polygon points="20,92 28,106 44,100 40,84 26,80"/>
+    <polygon points="6,30 -4,46 4,60 18,52 18,36"/>
+  </g>
+  <g clip-path="url(#bc)" stroke="#16181d" stroke-width="2.2">
+    <line x1="50" y1="33" x2="50" y2="18"/><line x1="66" y1="45" x2="82" y2="40"/>
+    <line x1="60" y1="64" x2="68" y2="80"/><line x1="40" y1="64" x2="32" y2="80"/><line x1="34" y1="45" x2="18" y2="40"/>
+  </g>
+  <circle cx="50" cy="50" r="48" fill="none" stroke="#16181d" stroke-width="2.5"/>
+</svg>
+
+<div id="spacer"></div>
+<div id="page">
+<nav><div class="wrap">
+  <div class="left"><a class="brand" href="#about">Silvio Mazzucco</a><button class="crumb" id="crumb" aria-haspopup="true"><span class="sep">/</span><span id="cur">About</span><svg class="caret" viewBox="0 0 12 12"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button><div class="menu" id="menu"></div></div>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#news">News</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#photography">Photography</a></li>
+  </ul>
+</div></nav>
+
+<main class="wrap">
+
+<section class="acc open" id="about" data-label="About">
+  <button class="acc-head" aria-expanded="true"><span class="t">About</span><svg class="sball" data-n="1" viewBox="0 0 100 100" aria-hidden="true">
+      <defs><clipPath id="bc1"><circle cx="50" cy="50" r="46"/></clipPath></defs>
+      <circle cx="50" cy="50" r="46" fill="#fff"/>
+      <g clip-path="url(#bc1)" stroke="#16181d" stroke-width="4" stroke-linejoin="round">
+        <polygon class="p p1" points="50.0,35.0 64.3,45.4 58.8,62.1 41.2,62.1 35.7,45.4"/>
+        <polygon class="p p2" points="62.1,14.8 45.4,20.3 35.0,6.0 45.4,-8.3 62.1,-2.8"/>
+        <polygon class="p p3" points="74.4,78.1 78.1,60.9 95.6,59.0 102.8,75.1 89.7,86.9"/>
+        <polygon class="p p4" points="13.5,57.1 26.6,68.9 19.4,85.0 1.9,83.1 -1.8,65.9"/>
+        <path fill="none" d="M50.0 35.0L50.0 19.0M63.0 57.5L76.8 65.5M37.0 57.5L23.2 65.5"/>
+      </g>
+      <circle cx="50" cy="50" r="46" fill="none" stroke="#16181d" stroke-width="5"/>
+    </svg></button>
+  <div class="acc-body"><div class="acc-clip"><div class="acc-inner hero">
+  <div>
+    <p class="bio">I'm a computer vision research engineer at Huawei's Zurich Research Center, working on video for smartphone cameras. Most of my time goes into preview stabilization (the version I built ships on the Mate 90 series), and the rest into research on diffusion models for video inpainting, camera control and 3D/4D reconstruction.</p>
+    <p class="bio">Before that I did my MSc in Robotics, Systems and Control at ETH Zurich. My master thesis turned into <a href="#vocalign">VocAlign</a>, a BMVC 2025 paper written with <a href="https://thegoodailab.org">The Good AI Lab</a>.</p>
+    <div class="links">
+      <a class="btn" href="mailto:silvio.mazzucco@thegoodailab.org"><svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>Email</a>
+      <a class="btn" href="https://github.com/Sisso16"><svg viewBox="0 0 24 24"><path d="M12 .5a12 12 0 00-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.2-3.1-.1-.4-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 016 0C17.3 4.7 18.3 5 18.3 5c.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.1 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0012 .5z"/></svg>GitHub</a>
+      <a class="btn" href="https://www.linkedin.com/in/silvio-mazzucco-7a9672234/"><svg viewBox="0 0 24 24"><path d="M20.4 2H3.6A1.6 1.6 0 002 3.6v16.8A1.6 1.6 0 003.6 22h16.8a1.6 1.6 0 001.6-1.6V3.6A1.6 1.6 0 0020.4 2zM8 19H5V9h3v10zM6.5 7.7a1.7 1.7 0 110-3.5 1.7 1.7 0 010 3.5zM19 19h-3v-4.9c0-1.2 0-2.7-1.6-2.7S12.5 12.7 12.5 14v5h-3V9h2.9v1.4c.4-.8 1.4-1.6 2.9-1.6 3.1 0 3.7 2 3.7 4.7V19z"/></svg>LinkedIn</a>
+    </div>
+  </div>
+  <div class="avatar"><img src="assets/photo.jpg" alt="Silvio Mazzucco"></div>
+
+  </div></div></div>
+</section>
+
+<section class="acc" id="news" data-label="News">
+  <button class="acc-head" aria-expanded="false"><span class="t">News</span><svg class="sball" data-n="2" viewBox="0 0 100 100" aria-hidden="true">
+      <defs><clipPath id="bc2"><circle cx="50" cy="50" r="46"/></clipPath></defs>
+      <circle cx="50" cy="50" r="46" fill="#fff"/>
+      <g clip-path="url(#bc2)" stroke="#16181d" stroke-width="4" stroke-linejoin="round">
+        <polygon class="p p1" points="50.0,35.0 64.3,45.4 58.8,62.1 41.2,62.1 35.7,45.4"/>
+        <polygon class="p p2" points="62.1,14.8 45.4,20.3 35.0,6.0 45.4,-8.3 62.1,-2.8"/>
+        <polygon class="p p3" points="74.4,78.1 78.1,60.9 95.6,59.0 102.8,75.1 89.7,86.9"/>
+        <polygon class="p p4" points="13.5,57.1 26.6,68.9 19.4,85.0 1.9,83.1 -1.8,65.9"/>
+        <path fill="none" d="M50.0 35.0L50.0 19.0M63.0 57.5L76.8 65.5M37.0 57.5L23.2 65.5"/>
+      </g>
+      <circle cx="50" cy="50" r="46" fill="none" stroke="#16181d" stroke-width="5"/>
+    </svg></button>
+  <div class="acc-body"><div class="acc-clip"><div class="acc-inner">
+  <ul class="news">
+    <li><time>Oct 2026</time><span>New preview stabilization shipped on the <b>Mate 90 series</b> (Pro / Pro Max / Ultimate).</span></li>
+    <li><time>2026</time><span>Received an individual <b>Director's Award for Technical Innovation</b> at Huawei.</span></li>
+    <li><time>Nov 2025</time><span>Presented <a href="#vocalign">VocAlign</a> at <b>BMVC 2025</b> in Sheffield, UK.</span></li>
+    <li><time>Sep 2025</time><span>VocAlign accepted at BMVC 2025. Code and paper are <a href="https://github.com/Sisso16/VocAlign">public</a>.</span></li>
+    <li><time>2025</time><span>Our team received the <b>Director's Award for Technical Innovation</b>.</span></li>
+    <li><time>Aug 2024</time><span>Joined the <b>Huawei Zurich Research Center</b> as a Computer Vision Research Engineer.</span></li>
+  </ul>
+
+  </div></div></div>
+</section>
+
+<section class="acc" id="publications" data-label="Publications">
+  <button class="acc-head" aria-expanded="false"><span class="t">Publications</span><svg class="sball" data-n="3" viewBox="0 0 100 100" aria-hidden="true">
+      <defs><clipPath id="bc3"><circle cx="50" cy="50" r="46"/></clipPath></defs>
+      <circle cx="50" cy="50" r="46" fill="#fff"/>
+      <g clip-path="url(#bc3)" stroke="#16181d" stroke-width="4" stroke-linejoin="round">
+        <polygon class="p p1" points="50.0,35.0 64.3,45.4 58.8,62.1 41.2,62.1 35.7,45.4"/>
+        <polygon class="p p2" points="62.1,14.8 45.4,20.3 35.0,6.0 45.4,-8.3 62.1,-2.8"/>
+        <polygon class="p p3" points="74.4,78.1 78.1,60.9 95.6,59.0 102.8,75.1 89.7,86.9"/>
+        <polygon class="p p4" points="13.5,57.1 26.6,68.9 19.4,85.0 1.9,83.1 -1.8,65.9"/>
+        <path fill="none" d="M50.0 35.0L50.0 19.0M63.0 57.5L76.8 65.5M37.0 57.5L23.2 65.5"/>
+      </g>
+      <circle cx="50" cy="50" r="46" fill="none" stroke="#16181d" stroke-width="5"/>
+    </svg></button>
+  <div class="acc-body"><div class="acc-clip"><div class="acc-inner">
+
+  <article class="pub" id="vocalign">
+    <a class="thumb" href="https://thegoodailab.org/blog/vocalign"><img src="assets/vocalign.jpg" alt="VocAlign qualitative segmentation results on Cityscapes" loading="lazy"></a>
+    <div>
+      <h3>Lost in Translation? Vocabulary Alignment for Source-Free Adaptation in Open-Vocabulary Semantic Segmentation</h3>
+      <p class="authors"><b>Silvio Mazzucco*</b>, Carl Persson*, Mattia Segu, Pier Luigi Dovesi, Federico Tombari, Luc Van Gool, Matteo Poggi <span style="color:var(--faint);font-size:13px;white-space:nowrap">(*joint first authors)</span></p>
+      <p class="venue"><em>BMVC 2025</em> British Machine Vision Conference</p>
+      <p class="tldr">VocAlign adapts open-vocabulary segmentation models to new domains without any source data. A student–teacher setup with vocabulary alignment and LoRA fine-tuning gains +6.11 mIoU on Cityscapes.</p>
+      <div class="tags">
+        <a class="tag" href="https://bmva-archive.org.uk/bmvc/2025/assets/papers/Paper_875/paper.pdf">Paper</a>
+        <a class="tag" href="https://arxiv.org/abs/2509.15225">arXiv</a>
+        <a class="tag" href="https://thegoodailab.org/blog/vocalign">Project page</a>
+        <a class="tag" href="https://github.com/Sisso16/VocAlign">Code</a>
+        <a class="tag" href="https://bmva-archive.org.uk/bmvc/2025/assets/papers/Paper_875/poster.pdf">Poster</a>
+        <button class="tag" onclick="this.closest('.pub').querySelector('.bib').classList.toggle('open')">BibTeX</button>
+      </div>
+<pre class="bib">@inproceedings{Mazzucco_2025_BMVC,
+  author    = {Silvio Mazzucco and Carl Persson and Mattia Segu and Pier Luigi Dovesi
+               and Federico Tombari and Luc Van Gool and Matteo Poggi},
+  title     = {Lost in Translation? Vocabulary Alignment for Source-Free Adaptation
+               in Open-Vocabulary Semantic Segmentation},
+  booktitle = {36th British Machine Vision Conference 2025, {BMVC} 2025,
+               Sheffield, UK, November 24-27, 2025},
+  publisher = {BMVA},
+  year      = {2025}
+}</pre>
+    </div>
+  </article>
+
+  </div></div></div>
+</section>
+
+<section class="acc" id="photography" data-label="Photography">
+  <button class="acc-head" aria-expanded="false"><span class="t">Photography</span><svg class="sball" data-n="4" viewBox="0 0 100 100" aria-hidden="true">
+      <defs><clipPath id="bc4"><circle cx="50" cy="50" r="46"/></clipPath></defs>
+      <circle cx="50" cy="50" r="46" fill="#fff"/>
+      <g clip-path="url(#bc4)" stroke="#16181d" stroke-width="4" stroke-linejoin="round">
+        <polygon class="p p1" points="50.0,35.0 64.3,45.4 58.8,62.1 41.2,62.1 35.7,45.4"/>
+        <polygon class="p p2" points="62.1,14.8 45.4,20.3 35.0,6.0 45.4,-8.3 62.1,-2.8"/>
+        <polygon class="p p3" points="74.4,78.1 78.1,60.9 95.6,59.0 102.8,75.1 89.7,86.9"/>
+        <polygon class="p p4" points="13.5,57.1 26.6,68.9 19.4,85.0 1.9,83.1 -1.8,65.9"/>
+        <path fill="none" d="M50.0 35.0L50.0 19.0M63.0 57.5L76.8 65.5M37.0 57.5L23.2 65.5"/>
+      </g>
+      <circle cx="50" cy="50" r="46" fill="none" stroke="#16181d" stroke-width="5"/>
+    </svg></button>
+  <div class="acc-body"><div class="acc-clip"><div class="acc-inner">
+  <p class="film-note">Shot on film with my dad's old Nikon F90X.</p>
+  <div class="gallery" id="gallery"></div>
+
+  </div></div></div>
+</section>
+
+</main>
+
+<div id="lightbox" aria-hidden="true"><button class="nav prev" aria-label="Previous">‹</button><img alt=""><button class="nav next" aria-label="Next">›</button><p></p></div>
+<footer><div class="wrap">© 2026 Silvio Mazzucco</div></footer>
+
+</div>
+<script>
+(function(){
+  var intro=document.getElementById('intro'), page=document.getElementById('page'), ball=document.getElementById('ball');
+  /* pitch drawn inside the camera frame, centred on the photo */
+  var NS='http://www.w3.org/2000/svg', svg=document.getElementById('pitch'), img=document.getElementById('img'), drawn=false;
+  function el(tag,attrs,cls){ var e=document.createElementNS(NS,tag); for(var k in attrs) e.setAttribute(k,attrs[k]); e.setAttribute('class',cls||'ln'); svg.appendChild(e); return e; }
+  function pitch(){
+    svg.innerHTML=''; var r=img.getBoundingClientRect(), W=r.width, H=r.height, ox=-r.left, oy=-(r.top);
+    var fr=document.querySelector('#intro .sensor').getBoundingClientRect();
+    var x0=fr.left+ox, y0=fr.top+oy, fw=fr.width, fh=fr.height, m=14;
+    var cx=x0+fw/2, cy=y0+fh/2, cr=document.querySelector('#intro .photo').offsetWidth/2+Math.min(fw,fh)*.07;
+    var bw=Math.min(fw*.42,400), bh=Math.min(fh*.13,110);
+    /* keep the penalty boxes clear of the name: shrink both (symmetrically), or drop them if there's no room */
+    var txt=document.querySelector('#intro .what').getBoundingClientRect(), room=(fr.bottom-m)-(txt.bottom+18);
+    bh=Math.min(bh,room); var boxes=bh>=36;
+    el('rect',{x:x0+m,y:y0+m,width:fw-2*m,height:fh-2*m});
+    el('line',{x1:x0+m,y1:cy,x2:x0+fw-m,y2:cy});
+    el('circle',{cx:cx,cy:cy,r:cr});
+    if(boxes){ el('rect',{x:cx-bw/2,y:y0+m,width:bw,height:bh}); el('rect',{x:cx-bw/2,y:y0+fh-m-bh,width:bw,height:bh}); }
+    el('circle',{cx:cx,cy:cy,r:3.5},'dot');
+    svg.querySelectorAll('.ln').forEach(function(p){ p.style.setProperty('--len',Math.ceil(p.getTotalLength())); if(drawn){ p.style.animation='none'; p.style.strokeDashoffset=0; } });
+    drawn=true;
+  }
+  pitch(); window.addEventListener('resize',pitch);
+
+  /* camera UI: timecode, EIS toggle (handheld shake vs stabilized) */
+  var t0=performance.now(), tc=document.getElementById('tc'), eisBtn=document.getElementById('eis'), status=document.getElementById('status'), eis=true, af=document.getElementById('af');
+  eisBtn.addEventListener('click',function(){ eis=!eis; eisBtn.classList.toggle('on',eis); eisBtn.setAttribute('aria-pressed',eis);
+    status.textContent=eis?'STABILIZATION ON':'STABILIZATION OFF'; status.style.opacity=1; clearTimeout(eisBtn._t); eisBtn._t=setTimeout(function(){ status.style.opacity=0; },1800); });
+  setTimeout(function(){ status.style.opacity=0; },2400);
+  document.getElementById('year').textContent=new Date().getFullYear();
+  document.getElementById('down').addEventListener('click',function(){ window.scrollTo({top:window.innerHeight,behavior:'smooth'}); });
+
+  /* curtain reveal: intro lifts away while the page waits underneath */
+  var ticking=false;
+  function reveal(){
+    ticking=false;
+    var h=window.innerHeight, y=Math.min(window.scrollY,h), p=y/h;
+    intro.style.transform='translate3d(0,'+(-y)+'px,0)';
+    intro.style.visibility = p>=1 ? 'hidden' : 'visible';
+    page.style.transform = p<1 ? 'translate3d(0,'+(y-h)+'px,0) scale('+(0.94+0.06*p)+')' : 'none';
+    page.style.opacity = 0.35+0.65*p;
+  }
+  window.addEventListener('scroll',function(){ if(!ticking){ticking=true;requestAnimationFrame(reveal);} },{passive:true});
+  window.addEventListener('resize',reveal); reveal();
+
+  /* football: follows the pointer (or wanders on its own when idle); the AF box locks onto it */
+  var tx=innerWidth*.72,ty=innerHeight*.62,x=tx,y=ty,rot=0,over=false,lastIn=-1e9;
+  function move(cx,cy){ tx=cx; ty=cy; lastIn=performance.now(); over=true; }
+  intro.addEventListener('mousemove',function(e){ move(e.clientX,e.clientY); });
+  intro.addEventListener('touchstart',function(e){ var t=e.touches[0]; move(t.clientX,t.clientY); },{passive:true});
+  intro.addEventListener('touchmove',function(e){ var t=e.touches[0]; move(t.clientX,t.clientY); },{passive:true});
+  ball.classList.remove('hidden');
+  (function loop(t){
+    var fr=document.querySelector('#intro .sensor').getBoundingClientRect();
+    if(t-lastIn>2500){ var k=(t-t0)/1000; tx=fr.left+fr.width*(.5+.38*Math.sin(k*.6)); ty=fr.top+fr.height*(.5+.36*Math.sin(k*1.1+1)); }
+    var dx=(tx-x)*0.2, dy=(ty-y)*0.2; x+=dx; y+=dy;
+    rot += (dx>=0?1:-1)*Math.hypot(dx,dy)/10*57.3;
+    ball.style.transform='translate3d('+x+'px,'+y+'px,0) rotate('+rot+'deg)';
+    var inside = x>fr.left && x<fr.right && y>fr.top && y<fr.bottom;
+    af.classList.toggle('on',inside); af.style.transform='translate3d('+x+'px,'+y+'px,0)';
+    var a=eis?0:1, j=function(f,ph){ return Math.sin(t*f+ph)+.5*Math.sin(t*f*2.3+ph*1.7); };
+    img.style.transform='translate3d('+(j(.0062,0)*10*a)+'px,'+(j(.0071,2)*9*a)+'px,0) rotate('+(j(.004,4)*.7*a)+'deg)';
+    var s=Math.floor((t-t0)/1000); tc.textContent='00:'+('0'+Math.floor(s/60)).slice(-2)+':'+('0'+s%60).slice(-2);
+    if(window.scrollY>innerHeight*.02) ball.classList.add('hidden'); else ball.classList.remove('hidden');
+    requestAnimationFrame(loop);
+  })(performance.now());
+})();
+</script>
+<script>
+/* ---- Photography: one entry per folder in assets/photos/ (filled in automatically when photos are added) ---- */
+var ROLLS = [
+  /* { title: "Folder name", folder: "assets/photos/folder-name/", photos: ["01.jpg","02.jpg"] }, */
+];
+(function(){
+  var g=document.getElementById('gallery'), lb=document.getElementById('lightbox'), lbImg=lb.querySelector('img'), lbCap=lb.querySelector('p'), list=[], idx=0;
+  function open(i){ idx=(i+list.length)%list.length; lbImg.src=list[idx].src; lbCap.textContent=list[idx].cap; lb.classList.add('open'); }
+  lb.querySelector('.prev').onclick=function(e){ e.stopPropagation(); open(idx-1); };
+  lb.querySelector('.next').onclick=function(e){ e.stopPropagation(); open(idx+1); };
+  lb.onclick=function(){ lb.classList.remove('open'); };
+  document.addEventListener('keydown',function(e){ if(!lb.classList.contains('open')) return;
+    if(e.key==='Escape') lb.classList.remove('open'); if(e.key==='ArrowLeft') open(idx-1); if(e.key==='ArrowRight') open(idx+1); });
+  function showRolls(){
+    g.className='rolls'; g.innerHTML='';
+    if(!ROLLS.length){ g.className='soon'; g.innerHTML='<span>Coming soon</span>'; return; }
+    var rolls=ROLLS;
+    rolls.forEach(function(r,i){
+      var b=document.createElement('button'); b.className='roll';
+      var cover=r.photos.length?'<img loading="lazy" src="'+r.folder+r.photos[0]+'" alt="'+r.title+'">':'<span>ROLL '+('0'+(i+1)).slice(-2)+'</span>';
+      b.innerHTML='<div class="cover">'+cover+'</div><div class="meta"><b>'+r.title+'</b><i>'+(r.photos.length||'')+'</i></div>';
+      if(r.photos.length) b.onclick=function(){ showRoll(r); }; else b.style.cursor='default';
+      g.appendChild(b);
+    });
+  }
+  function showRoll(r){
+    g.className=''; g.innerHTML='<div class="rollhead"><button>← ALL ROLLS</button><b>'+r.title+'</b></div><div class="gallery"></div>';
+    g.querySelector('button').onclick=showRolls;
+    var wall=g.querySelector('.gallery'); list=r.photos.map(function(p){ return {src:r.folder+p,cap:r.title}; });
+    list.forEach(function(p,i){ var f=document.createElement('figure'); f.innerHTML='<img loading="lazy" src="'+p.src+'" alt="'+r.title+'">'; f.onclick=function(){ open(i); }; wall.appendChild(f); });
+  }
+  showRolls();
+})();
+</script>
+<script>
+(function(){
+  /* accordion sections + current-section label next to the name */
+  var accs=[].slice.call(document.querySelectorAll('.acc')), cur=document.getElementById('cur'),
+      menu=document.getElementById('menu'), crumb=document.getElementById('crumb'),
+      links=[].slice.call(document.querySelectorAll('nav ul a[href^="#"]')), shown='About', t=false;
+  accs.forEach(function(sec){ var a=document.createElement('a'); a.href='#'+sec.id; a.textContent=sec.dataset.label; menu.appendChild(a); });
+  var mlinks=[].slice.call(menu.querySelectorAll('a'));
+  function setOpen(sec,open){ sec.classList.toggle('open',open); sec.querySelector('.acc-head').setAttribute('aria-expanded',open); }
+  accs.forEach(function(sec){ sec.querySelector('.acc-head').addEventListener('click',function(){ setOpen(sec,!sec.classList.contains('open')); }); });
+  function go(id){ var sec=document.getElementById(id); if(!sec) return;
+    var host=sec.classList.contains('acc')?sec:sec.closest('.acc'); if(!host) return;
+    if(window.scrollY<innerHeight) window.scrollTo(0,innerHeight);
+    /* switching from the nav: close the sections you're leaving, instantly so the page doesn't jump */
+    accs.forEach(function(x){ if(x!==host && x.classList.contains('open')){ x.classList.add('instant'); setOpen(x,false); } });
+    void document.body.offsetHeight;
+    host.classList.add('instant'); setOpen(host,true); void document.body.offsetHeight;
+    accs.forEach(function(x){ x.classList.remove('instant'); });
+    menu.classList.remove('open');
+    setTimeout(function(){ (sec===host?host.querySelector('.acc-head'):sec).scrollIntoView({behavior:'smooth',block:'start'}); },60);
+    setTimeout(update,650); setTimeout(update,1100); }
+  function route(e){ var a=e.target.closest('a[href^="#"]'); if(!a) return; var id=a.getAttribute('href').slice(1);
+    if(id && document.getElementById(id) && (document.getElementById(id).closest('.acc'))){ e.preventDefault(); go(id); try{history.replaceState(null,'','#'+id);}catch(_){} } }
+  document.querySelector('nav').addEventListener('click',route);
+  document.querySelector('main').addEventListener('click',route);
+  crumb.addEventListener('click',function(e){ if(matchMedia('(max-width:640px)').matches){ e.stopPropagation(); menu.classList.toggle('open'); } });
+  document.addEventListener('click',function(){ menu.classList.remove('open'); });
+  function update(){
+    t=false; var sec=accs[0];
+    accs.forEach(function(x){ if(x.getBoundingClientRect().top<=120) sec=x; });
+    if(innerHeight+scrollY>=document.documentElement.scrollHeight-4){ /* can't scroll further: pick the last open section on screen */
+      accs.forEach(function(x){ var r=x.getBoundingClientRect(); if(x.classList.contains('open') && r.top<innerHeight && r.bottom>60) sec=x; }); }
+    links.concat(mlinks).forEach(function(a){ a.classList.toggle('on',a.getAttribute('href')==='#'+sec.id); });
+    if(sec.dataset.label!==shown){ shown=sec.dataset.label; cur.classList.add('swap'); setTimeout(function(){ cur.textContent=shown; cur.classList.remove('swap'); },160); }
+  }
+  addEventListener('scroll',function(){ if(!t){t=true;requestAnimationFrame(update);} },{passive:true}); update();
+  if(location.hash.length>1) setTimeout(function(){ go(location.hash.slice(1)); },50);
+})();
+</script>
+</body>
+</html>
